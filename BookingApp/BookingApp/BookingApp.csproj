@@ -246,8 +246,16 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AccommodationController.cs" />
+    <Compile Include="Controllers\AccommodationTypeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\CountriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlacesController.cs" />
+    <Compile Include="Controllers\RegionsController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\RoomReservationsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -259,6 +267,10 @@
     <Compile Include="Migrations\201706051134351_allClasses.cs" />
     <Compile Include="Migrations\201706051134351_allClasses.Designer.cs">
       <DependentUpon>201706051134351_allClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706060838400_UpdatedClasses.cs" />
+    <Compile Include="Migrations\201706060838400_UpdatedClasses.Designer.cs">
+      <DependentUpon>201706060838400_UpdatedClasses.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accommodation.cs" />
@@ -358,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706051134351_allClasses.resx">
       <DependentUpon>201706051134351_allClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706060838400_UpdatedClasses.resx">
+      <DependentUpon>201706060838400_UpdatedClasses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

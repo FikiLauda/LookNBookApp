@@ -12,6 +12,7 @@ namespace BookingApp.Models
         public int Id { get; set; }
 
         [StringLength(256)]
+        [Index(IsUnique = true)]
         [Required]
         public string Name { get; set; }
 
