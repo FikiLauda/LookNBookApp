@@ -1,0 +1,18 @@
+<h3>Register</h3>
+<form #F="ngForm" (ngSubmit)="OnSubmit()">
+  <div>
+    <label for="UserName">Username:</label>
+    <input type="text" id="UserName" name = "UserName" [(ngModel)]="user"/>
+  </div>
+  <div>
+    <label for="E-mail">E-mail:</label>
+    <input type="email" id="E-mail" name = "E-mail" [(ngModel)]="mail"/>
+  </div>
+    <div>
+    <label for="Password">Password:</label>
+    <input type="password" id="Password" name = "Password" [(ngModel)]="pass"/>
+  </div>
+  <div>
+    <input type="submit" Value = "Log In"/>
+  </div>
+</form>
