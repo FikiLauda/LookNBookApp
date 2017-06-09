@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from './login.service'
+import { LoginService } from './login.service'
+import { Router, ActivatedRoute } from '@angular/router';
+import { AdminPanelComponent } from '../admin-panel/admin-panel.component';
+
+const Routes = [
+  {path: "adminPanel", component: AdminPanelComponent}, //children: ChildRoutes},
+]
 
 @Component({
   selector: 'app-login',
@@ -12,7 +18,7 @@ export class LoginComponent implements OnInit {
   user: string;
   pass: string;
 
-  constructor(private loginService : LoginService) 
+  constructor(private router: Router, private loginService : LoginService) 
   { 
 
   }
@@ -24,8 +30,8 @@ export class LoginComponent implements OnInit {
 
   OnSubmit()
   {
-    console.log("User: " + this.user + "Pass:" + this.pass);
-    this.loginService.logIn();
+    this.loginService.logIn(this.user,this.pass,"password").subscribe();
+    this.router.navigate(['/adminPanel']);
   }
 
 }

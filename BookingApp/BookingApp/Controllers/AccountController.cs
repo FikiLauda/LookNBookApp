@@ -28,6 +28,7 @@ namespace BookingApp.Controllers
 
         public AccountController()
         {
+
         }
 
         public AccountController(ApplicationUserManager userManager,
@@ -323,19 +324,18 @@ namespace BookingApp.Controllers
         [Route("Register")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            BookingApp.Models.BAContext context = new BAContext();
 
-            var user = new BAIdentityUser() { UserName = model.Email, Email = model.Email };
+            AppUser appUser = new AppUser() { Name = model.Name, Surname = model.Surname };
 
-            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+            var user = new BAIdentityUser() { Id = Guid.NewGuid().ToString(), UserName = model.Email, Email = model.Email, appUser = appUser, PasswordHash = BAIdentityUser.HashPassword(model.Password) };
 
-            if (!result.Succeeded)
-            {
-                return GetErrorResult(result);
-            }
+            var userStore = new UserStore<BAIdentityUser>(context);
+
+            var userManager = new UserManager<BAIdentityUser>(userStore);
+
+            userManager.Create(user);
+            userManager.AddToRole(user.Id, model.Role);
 
             return Ok();
         }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RegisterService} from './registration.service'
+import {NewUser} from './reg.model'
 
 @Component({
   selector: 'app-registration',
@@ -9,11 +10,15 @@ import {RegisterService} from './registration.service'
 })
 export class RegistrationComponent implements OnInit {
 
-  user: string;
+  name: string;
+  surname: string;
   mail: string;
   pass: string;
+  confpass: string;
+  role: string;
+  isChecked : boolean;
 
-  constructor(private resService : RegisterService) 
+  constructor(private regService : RegisterService) 
   { 
 
   }
@@ -25,7 +30,19 @@ export class RegistrationComponent implements OnInit {
 
   OnSubmit()
   {
-    console.log("User: " + this.user + "Mail:" + this.mail + "Pass:" + this.pass);
+    console.log(this.role);
+    this.regService.Register(new NewUser(this.name,this.surname,this.mail,this.pass,this.confpass,this.role)).subscribe();
   }
 
+  chk(e) 
+  {
+    if(e.target.checked)
+    {
+      this.role = "Manager"
+    }
+    else
+    {
+      this.role = "User"
+    }
+  }
 }

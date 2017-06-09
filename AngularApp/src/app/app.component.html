@@ -1,13 +1,24 @@
 <!--The whole content below can be removed with the new code.-->
 <div style="text-align:center">
-  <img width="400" src="../assets/LookNBook.png"/>
+  <br>
+  <br>
+  <img width="300" src="../assets/LookNBook.png"/>
+
+  <blockquote>
+    <p>"The next best thing since our website. #NOT"</p>
+    <footer>Someone famous from <i>Booking.com</i></footer>
+  </blockquote>
+
+<a [routerLink]="['/register']" class="btn btn-primary btn-lg" role="button">Sign Up</a>
+or
+<a [routerLink]="['/login']" class="btn btn-primary btn-lg" role="button">Sign In</a>
+<br>
+<br>
+<router-outlet></router-outlet>
+
 </div>
 
-<app-login></app-login>
+<!--country-list></country-list-->
 
-<app-registration><app-registration>
-
-<country-list></country-list>
-
-<region-list></region-list>
+<!--region-list></region-list-->
 

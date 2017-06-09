@@ -42,8 +42,8 @@ namespace BookingApp.Migrations
                         Text = c.String(maxLength: 300),
                     })
                 .PrimaryKey(t => new { t.AccId, t.USerId })
-                .ForeignKey("dbo.Accommodations", t => t.AccId, cascadeDelete: false)
-                .ForeignKey("dbo.AppUsers", t => t.USerId, cascadeDelete: true)
+                .ForeignKey("dbo.Accommodations", t => t.AccId, cascadeDelete: true)
+                .ForeignKey("dbo.AppUsers", t => t.USerId, cascadeDelete: false)
                 .Index(t => t.AccId)
                 .Index(t => t.USerId);
             
@@ -101,8 +101,8 @@ namespace BookingApp.Migrations
                         Timestamp = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
                     })
                 .PrimaryKey(t => new { t.RoomId, t.UserId })
-                .ForeignKey("dbo.Rooms", t => t.RoomId, cascadeDelete: false)
-                .ForeignKey("dbo.AppUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.Rooms", t => t.RoomId, cascadeDelete: true)
+                .ForeignKey("dbo.AppUsers", t => t.UserId, cascadeDelete: false)
                 .Index(t => t.RoomId)
                 .Index(t => t.UserId);
             

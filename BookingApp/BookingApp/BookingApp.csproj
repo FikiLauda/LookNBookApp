@@ -280,6 +280,10 @@
     <Compile Include="Migrations\201706060838400_UpdatedClasses.Designer.cs">
       <DependentUpon>201706060838400_UpdatedClasses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706090756505_UserRegUpdate.cs" />
+    <Compile Include="Migrations\201706090756505_UserRegUpdate.Designer.cs">
+      <DependentUpon>201706090756505_UserRegUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accommodation.cs" />
     <Compile Include="Models\AccommodationType.cs" />
@@ -381,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706060838400_UpdatedClasses.resx">
       <DependentUpon>201706060838400_UpdatedClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706090756505_UserRegUpdate.resx">
+      <DependentUpon>201706090756505_UserRegUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
