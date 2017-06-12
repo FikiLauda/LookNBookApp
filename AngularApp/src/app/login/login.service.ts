@@ -12,19 +12,21 @@ export class LoginService
         
     }
 
-    logIn(user: string, pass: string, Grant_type:string): Observable<any>
+    logIn(user: string, pass: string, grant_type:string): Observable<any>
     {
         let header = new Headers()
         header.append('Content-type','application/x-www-form-urlencoded');
+        //header.append('Authorization','Bearer' + localStorage.getItem("token"));
 
         let opts = new RequestOptions();
         opts.headers = header;
 
-        return this.http.post(`http://localhost:54042/oauth/token/`, `username=${user}&password=${pass}&grant_type=${Grant_type}`,opts);
+        return this.http.post(`http://localhost:54042/oauth/token`, `username=${user}&password=${pass}&grant_type=${grant_type}`,opts);
     }
 
     logOut(): void{
         localStorage.removeItem("token");
+        localStorage.removeItem("role");
     }
 
     isLoggedIn(): boolean{

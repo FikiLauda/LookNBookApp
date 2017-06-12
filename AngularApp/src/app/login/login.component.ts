@@ -2,23 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service'
 import { Router, ActivatedRoute } from '@angular/router';
 import { AdminPanelComponent } from '../admin-panel/admin-panel.component';
-
-const Routes = [
-  {path: "adminPanel", component: AdminPanelComponent}, //children: ChildRoutes},
-]
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [LoginService]
+  providers: [LoginService, AuthenticationService] 
 })
 export class LoginComponent implements OnInit {
 
   user: string;
   pass: string;
 
-  constructor(private router: Router, private loginService : LoginService) 
+  constructor(private router: Router, private loginService : LoginService, private authenticationService: AuthenticationService) 
   { 
 
   }
@@ -30,8 +27,12 @@ export class LoginComponent implements OnInit {
 
   OnSubmit()
   {
-    this.loginService.logIn(this.user,this.pass,"password").subscribe();
-    this.router.navigate(['/adminPanel']);
+    this.loginService.logIn(this.user,this.pass,"password").subscribe(x => { this.authenticationService.saveIntoLocalStorage(x); });
+    
+    if(localStorage.getItem("role")=="Admin")
+    {
+       this.router.navigate(['/adminPanel']);
+    }
   }
 
 }

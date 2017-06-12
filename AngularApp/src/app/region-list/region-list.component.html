@@ -1,25 +1,33 @@
-<h3>Add a new region:</h3>
-<form #F="ngForm" (ngSubmit)="OnSubmit()">
-  <div>
-    <label for="Name">Name:</label>
-    <input type="text" id="Name" name = "Name" [(ngModel)]="Name"/>
+<form #F="ngForm" (ngSubmit)="OnSubmit()" class="form-horizontal">
+  <fieldset>
+  <legend>Add new region</legend>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="Name">Name:</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" id="Name" name = "Name" [(ngModel)]="Name"/>
+    </div>
   </div>
-  <div>
-    <label for="Country">Country:</label>
-    <input list="Countries" id="Country" name = "Country" [(ngModel)]="Country"/>
-    <datalist id="Countries">
-      <option *ngFor="let c of countries"> <country [country] = "c"></country></option>
-    </datalist>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="Country">Country:</label>
+    <div class="col-sm-10">
+      <input class="form-control" list="Countries" id="Country" name = "Country" [(ngModel)]="Country"/>
+      <datalist id="Countries">
+        <option *ngFor="let c of countries"> <country [country] = "c"></country></option>
+      </datalist>
+    </div>
   </div>
-  <div>
-    <input type="submit" Value = "Add Region"/>
+  <div class="form-group">
+    <input class="btn btn-primary" type="submit" Value = "Add Region"/>
   </div>
+  </fieldset>
 </form>
 
 <h2>
-  Regions to "LOOK 'n' BOOK"
+  Regions
 </h2>
 
-<ul>
-  <li *ngFor="let r of regions"> <region [region] = "r"></region> </li>
-</ul>
+<div class="list-group">
+  <div class="list-group-item" *ngFor="let r of regions">
+	<region [region] = "r"></region>
+  </div>
+</div>

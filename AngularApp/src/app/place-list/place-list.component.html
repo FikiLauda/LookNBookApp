@@ -1,0 +1,27 @@
+<h3>Add a new place:</h3>
+<form #F="ngForm" (ngSubmit)="OnSubmit()">
+  <div>
+    <label for="Name">Name:</label>
+    <input type="text" id="Name" name = "Name" [(ngModel)]="Name"/>
+  </div>
+  <div>
+    <label for="Region">Region:</label>
+    <input list="Regions" id="Region" name = "Region" [(ngModel)]="Region"/>
+    <datalist id="Regions">
+      <option *ngFor="let r of regions"> <region [region] = "r"></region></option>
+    </datalist>
+  </div>
+  <div>
+    <input type="submit" Value = "Add Place"/>
+  </div>
+</form>
+
+<h2>
+  Regions to "LOOK 'n' BOOK"
+</h2>
+
+<div class="list-group">
+  <div class="list-group-item" *ngFor="let p of places"> 
+	<place [place] = "p"></place>
+  </div>
+</div>

@@ -12,11 +12,25 @@ import { RegionComponent } from './region/region.component';
 import { RegionListComponent } from './region-list/region-list.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { PlaceComponent } from './place/place.component';
+import { PlaceListComponent } from './place-list/place-list.component';
+import { AccommodationTypeComponent } from './accommodation-type/accommodation-type.component';
+import { AccommodationTypeListComponent } from './accommodation-type-list/accommodation-type-list.component';
+import { CommentComponent } from './comment/comment.component';
+import { CommentListComponent } from './comment-list/comment-list.component';
+import { RoomComponent } from './room/room.component';
+import { RoomListComponent } from './room-list/room-list.component';
+import { AccommodationComponent } from './accommodation/accommodation.component';
 
 const Routes = [
-  {path: "login", component: LoginComponent}, //children: ChildRoutes},
-  {path: "register", component: RegistrationComponent}
-]
+  {path: "login", component: LoginComponent},
+  {path: "register", component: RegistrationComponent},
+  {path: "adminPanel", component: AdminPanelComponent},
+  {path: "countries", component: CountryListComponent},
+  {path: "regions", component: RegionListComponent},
+  {path: "places", component: PlaceListComponent},
+  {path: "accTypes", component: AccommodationTypeListComponent}
+  ]
 
 @NgModule({
   declarations: [
@@ -27,7 +41,16 @@ const Routes = [
     RegionComponent,
     RegionListComponent,
     RegistrationComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    PlaceComponent,
+    PlaceListComponent,
+    AccommodationTypeComponent,
+    AccommodationTypeListComponent,
+    CommentComponent,
+    CommentListComponent,
+    RoomComponent,
+    RoomListComponent,
+    AccommodationComponent,
   ],
   imports: [
     BrowserModule,

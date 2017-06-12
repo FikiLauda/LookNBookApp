@@ -30,8 +30,9 @@ namespace BookingApp.Providers
             var allowedOrigin = "*";
 
             BAContext baContext = new BAContext();
-
+            
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { allowedOrigin });
+            context.OwinContext.Response.Headers.Add("Access-Control-Expose-Headers", new[] { "Role" });
 
             ApplicationUserManager userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
