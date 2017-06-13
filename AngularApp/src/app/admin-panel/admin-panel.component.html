@@ -1,16 +1,19 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <img width="150" src="../assets/LookNBook.png"/>
-      <a class="navbar-brand" href="#">Admin Panel</a>
+      <img width="75" src="../assets/LookNBook.png" float="left"/>
+      <a class="navbar-brand" [routerLink]="['/adminPanel']">Admin Panel</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a [routerLink]="['/countries']">Countries</a></li>
-      <li><a [routerLink]="['/regions']">Regions</a></li>
-      <li><a [routerLink]="['/places']">Places</a></li>
-      <li><a [routerLink]="['/accTypes']">Accommodation Types</a></li>
+      <li><a [routerLink]="['/adminPanel/countries']">Countries</a></li>
+      <li><a [routerLink]="['/adminPanel/regions']">Regions</a></li>
+      <li><a [routerLink]="['/adminPanel/places']">Places</a></li>
+      <li><a [routerLink]="['/adminPanel/accTypes']">Accommodation Types</a></li>
     </ul>
+  <ul class="nav navbar-nav navbar-right">
+   <li><a (click)="SignOut()" class="btn btn-primary">Sign Out</a></li>
+  </ul>
   </div>
 </nav>
 
-<router-outlet name="admin"></router-outlet>
+<router-outlet></router-outlet>

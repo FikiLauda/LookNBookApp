@@ -24,6 +24,7 @@ export class RegionListService
     {
         let header = new Headers()
         header.append('Content-type','application/json');
+        header.append('Authorization','Bearer ' + localStorage.getItem("token"));
 
         let opts = new RequestOptions();
         opts.headers = header;

@@ -4,9 +4,8 @@ export class Country
     Name: string;
     Code: string;
 
-    constructor(id: number, name: string, code: string)
+    constructor(name: string, code: string)
     {
-        this.Id = id;
         this.Name = name;
         this.Code = code;
     }

@@ -3,9 +3,8 @@ export class AccommodationType
     Id: number;
     Name: string;
 
-    constructor(id: number, name: string)
+    constructor(name: string)
     {
-        this.Id = id;
         this.Name = name;
     }
 }

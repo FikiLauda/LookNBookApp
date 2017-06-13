@@ -29,7 +29,7 @@ export class RegionListComponent implements OnInit {
 
   OnSubmit()
   {
-    this.regionService.create(new Region(1,this.Name,this.Country)).subscribe();
+    this.regionService.create(new Region(this.Name,this.Country)).subscribe();
   }
 
 }

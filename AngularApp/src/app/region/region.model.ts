@@ -6,9 +6,8 @@ export class Region
     Name: string;
     Ctry: Country;
 
-    constructor(id: number, name: string, ctry: Country)
+    constructor(name: string, ctry: Country)
     {
-        this.Id = id;
         this.Name = name;
         this.Ctry = ctry;
     }

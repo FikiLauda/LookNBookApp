@@ -23,7 +23,7 @@ export class AccommodationTypeListComponent implements OnInit {
 
   OnSubmit()
   {
-    this.accTypeService.create(new AccommodationType(1,this.Name)).subscribe();
+    this.accTypeService.create(new AccommodationType(this.Name)).subscribe();
   }
 
 }

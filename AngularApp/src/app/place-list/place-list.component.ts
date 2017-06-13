@@ -29,7 +29,7 @@ export class PlaceListComponent implements OnInit {
 
   OnSubmit()
   {
-    this.placeService.create(new Place(1,this.Name,this.Region)).subscribe();
+    this.placeService.create(new Place(this.Name,this.Region)).subscribe();
   }
 
 }

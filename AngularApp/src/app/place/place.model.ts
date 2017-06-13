@@ -5,9 +5,8 @@ export class Place
     Name: string;
     Reg: Region;
 
-    constructor(id: number, name: string, reg: Region)
+    constructor(name: string, reg: Region)
     {
-        this.Id = id;
         this.Name = name;
         this.Reg = reg;
     }
