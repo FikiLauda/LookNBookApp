@@ -26,7 +26,7 @@ export class CommentListComponent implements OnInit {
 
   OnSubmit()
   {
-    this.commentService.create(new Comment(this.Grade,this.Text,this.Accommodation)).subscribe(); //add more!!!
+    this.commentService.create(new Comment(this.Grade,this.Text,this.Accommodation.Id)).subscribe(); //add more!!!
   }
 
 }

@@ -29,11 +29,30 @@ export class RegionListService
         let opts = new RequestOptions();
         opts.headers = header;
 
-        return this.http.post(`http://localhost:54042/api/Regions/`, JSON.stringify(region));
+        return this.http.post(`http://localhost:54042/api/Regions/`, JSON.stringify(region), opts);
     }
 
-    update()
+    update(region: Region, id: number)
     {
-        //no code here :(
+        let header = new Headers()
+        header.append('Content-type','application/json');
+        header.append('Authorization','Bearer ' + localStorage.getItem("token"));
+
+        let opts = new RequestOptions();
+        opts.headers = header;
+
+        return this.http.put(`http://localhost:54042/api/Regions/${id}`, JSON.stringify(region), opts);
+    }
+
+    delete(id: number) : Observable<any>
+    {
+        let header = new Headers()
+        header.append('Content-type','application/json');
+        header.append('Authorization','Bearer ' + localStorage.getItem("token"));
+
+        let opts = new RequestOptions();
+        opts.headers = header;
+
+        return this.http.delete(`http://localhost:54042/api/Regions/${id}`, opts);
     }
 }

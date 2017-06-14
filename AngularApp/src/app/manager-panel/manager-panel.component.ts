@@ -3,12 +3,12 @@ import { LoginService } from '../login/login.service'
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-admin-panel',
-  templateUrl: './admin-panel.component.html',
-  styleUrls: ['./admin-panel.component.css'],
+  selector: 'app-manager-panel',
+  templateUrl: './manager-panel.component.html',
+  styleUrls: ['./manager-panel.component.css'],
   providers: [LoginService] 
 })
-export class AdminPanelComponent implements OnInit {
+export class ManagerPanelComponent implements OnInit {
 
   constructor(private loginService : LoginService, private router: Router) { }
 

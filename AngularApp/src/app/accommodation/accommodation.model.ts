@@ -1,6 +1,3 @@
-import {AccommodationType} from '../accommodation-type/accommodation-type.model'
-import {Place} from '../place/place.model'
-
 export class Accommodation
 {
     Id: number;
@@ -12,10 +9,10 @@ export class Accommodation
     Longitude: number;
     ImgUrl: string;
     Approved: boolean;
-    AccType: AccommodationType;
-    Place: Place;
+    AccTypeId: number;
+    PlaceId: number;
 
-    constructor(name: string, decription: string, address: string, averageGrade: number, latitude: number, longitude: number, imgUrl: string, approved: boolean, accType: AccommodationType, place: Place)
+    constructor(name: string, decription: string, address: string, averageGrade: number, latitude: number, longitude: number, imgUrl: string, approved: boolean, accTypeId: number, placeId: number)
     {
         this.Name = name;
         this.Decription = decription;
@@ -25,7 +22,7 @@ export class Accommodation
         this.Longitude = longitude;
         this.ImgUrl = imgUrl;
         this.Approved = approved;
-        this.AccType = accType;
-        this.Place = place;
+        this.AccTypeId = accTypeId;
+        this.PlaceId = placeId;
     }
 }

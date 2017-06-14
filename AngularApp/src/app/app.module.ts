@@ -25,6 +25,12 @@ import { MapComponent } from './map/map.component';
 import { AccommodationListComponent } from './accommodation-list/accommodation-list.component';
 import { AgmCoreModule } from '@agm/core';
 import { StartScreenComponent } from './start-screen/start-screen.component';
+import { ManagerPanelComponent } from './manager-panel/manager-panel.component';
+import { EditCountryComponent } from './edit-country/edit-country.component';
+
+const CountryChildRoutes = [
+   {path: "update/:Id/:Name/:Code", component: EditCountryComponent}
+  ]
 
 const StartChildRoutes = [
    {path: "login", component: LoginComponent},
@@ -32,15 +38,21 @@ const StartChildRoutes = [
   ]
 
 const AdminPanelChildRoutes = [
-    {path: "countries", component: CountryListComponent},
+    {path: "countries", component: CountryListComponent, children: CountryChildRoutes},
     {path: "regions", component: RegionListComponent},
     {path: "places", component: PlaceListComponent},
     {path: "accTypes", component: AccommodationTypeListComponent}
   ]
 
+const ManagerPanelChildRoutes = [
+    {path: "accommodations", component: AccommodationListComponent},
+    {path: "rooms", component: RoomListComponent}
+  ]
+
 const Routes = [
   {path: "start", component: StartScreenComponent, children: StartChildRoutes},
   {path: "adminPanel", component: AdminPanelComponent, children: AdminPanelChildRoutes},
+  {path: "managerPanel", component: ManagerPanelComponent, children: ManagerPanelChildRoutes},
   {path: "other", redirectTo:"start"},
   ]
 
@@ -66,7 +78,9 @@ const Routes = [
     MapComponent,
     AccommodationListComponent,
     MapComponent,
-    StartScreenComponent 
+    StartScreenComponent,
+    ManagerPanelComponent,
+    EditCountryComponent 
   ],
   imports: [
     BrowserModule,

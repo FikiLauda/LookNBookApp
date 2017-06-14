@@ -15,10 +15,11 @@ export class RegisterService
     {
         let header = new Headers()
         header.append('Content-type','application/json');
+        header.append('Accept','application/json');
 
         let opts = new RequestOptions();
         opts.headers = header;
 
-        return this.http.post(`http://localhost:54042/api/Account/Register`, JSON.stringify(user));
+        return this.http.post(`http://localhost:54042/api/Account/Register`, JSON.stringify(user), opts);
     }
 }

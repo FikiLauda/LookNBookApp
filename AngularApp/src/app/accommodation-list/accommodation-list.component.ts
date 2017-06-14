@@ -28,7 +28,9 @@ export class AccommodationListComponent implements OnInit {
   ImgUrl: string;
 
   constructor(private placeService : PlaceListService, private accTypeService : AccommodationTypeListService, private accommodationService: AccommodationListService) { 
-  }
+    this.AccType = {} as AccommodationType;
+    this.Place = {} as Place;
+}
 
   ngOnInit() {
     this.accTypeService.getAll().subscribe(data => this.accTypes = data.json());
@@ -37,7 +39,7 @@ export class AccommodationListComponent implements OnInit {
 
   OnSubmit()
   {
-    this.accommodationService.create(new Accommodation(this.Name,this.Description,this.Address,0,this.Latitude,this.Longitude,this.ImgUrl,false,this.AccType,this.Place)).subscribe();
+    this.accommodationService.create(new Accommodation(this.Name,this.Description,this.Address,0,this.Latitude,this.Longitude,this.ImgUrl,false,this.AccType.Id,this.Place.Id)).subscribe();
   }
 
   readURL(input) {

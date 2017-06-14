@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
+import {PlaceListService} from '../place-list/place-list.service'
+import {PlaceListComponent} from '../place-list/place-list.component'
 import {Place} from './place.model';
 
 @Component({
@@ -11,9 +14,19 @@ export class PlaceComponent implements OnInit {
 
   @Input() place: Place
 
-  constructor() { }
+  constructor(private placeService : PlaceListService, private listComponent : PlaceListComponent, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  Update(place: Place)
+  {
+    //this.router.navigate(['/adminPanel/countries/update',country.Id, country.Name, country.Code]);
+  }
+
+  Delete(id: number)
+  {
+    this.placeService.delete(id).subscribe(x => {res => this.listComponent.places.splice(res.json()); this.router.navigate(['/adminPanel/places'])});
   }
 
 }

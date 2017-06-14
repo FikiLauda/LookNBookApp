@@ -17,7 +17,7 @@ export class RoomListComponent implements OnInit {
   BedCount: number;
   Description: string;
   PricePerNight: number;
-  Accomm: Accommodation
+  AccommId: number
 
   constructor(private roomService : RoomListService) { 
   }
@@ -28,7 +28,7 @@ export class RoomListComponent implements OnInit {
 
   OnSubmit()
   {
-    this.roomService.create(new Room(this.RoomNumber,this.BedCount, this.Description, this.PricePerNight, this.Accomm)).subscribe();
+    this.roomService.create(new Room(this.RoomNumber,this.BedCount, this.Description, this.PricePerNight, this.AccommId)).subscribe();
   }
 
 }

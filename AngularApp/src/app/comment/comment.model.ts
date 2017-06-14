@@ -1,15 +1,14 @@
-import {Accommodation} from '../accommodation/accommodation.model'
 export class Comment
 {
     Id: number;
     Grade: number;
     Text: string;
-    Accomm: Accommodation 
+    AccommId: number 
 
-    constructor(grade: number, text: string, accomm: Accommodation)
+    constructor(grade: number, text: string, accommId: number)
     {
         this.Grade = grade;
         this.Text = text;
-	    this.Accomm = accomm;
+	    this.AccommId = accommId;
     }
 }

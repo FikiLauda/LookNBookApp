@@ -1,13 +1,12 @@
-import {Region} from '../region/region.model'
 export class Place
 {
     Id: number;
     Name: string;
-    Reg: Region;
+    RegId: number;
 
-    constructor(name: string, reg: Region)
+    constructor(name: string, regId: number)
     {
         this.Name = name;
-        this.Reg = reg;
+        this.RegId = regId;
     }
 }

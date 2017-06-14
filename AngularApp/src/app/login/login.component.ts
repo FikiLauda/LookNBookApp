@@ -33,6 +33,10 @@ export class LoginComponent implements OnInit {
     {
        this.router.navigate(['/adminPanel']);
     }
+    else if(localStorage.getItem("role")=="Manager")
+    {
+       this.router.navigate(['/managerPanel']);
+    }
   }
 
 }

@@ -2,9 +2,8 @@
   <div class="panel-heading">{{accomm.Name}}</div>
   <div class="panel-body">
     <img src="{{accomm.ImgUrl}}" float="left" class="img-responsive" alt="Accommodation Image" width="300">
-    <p>{{accomm.Address}}, {{accomm.Place.Name}}</p><br>
+    <p>{{accomm.Address}}</p><br>
     <p>{{accomm.Description}}</p><br>
-    <p>{{accomm.AccType.Name}}</p>
     <div style="width:50%; margin: 0 auto">
       <map [mapInfo]="mapInfo"></map>
     </div>

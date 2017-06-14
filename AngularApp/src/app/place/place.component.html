@@ -1,7 +1,9 @@
 <div class="panel panel-default">
   <div class="panel-heading">{{place.Name}}</div>
   <div class="panel-body">
-    <p>{{place.Reg.Name}}</p><br>
-    <p>{{place.Reg.Ctry.Name}}</p>
+    <a (click)="Update(region)" class="btn btn-info">Edit</a>
+    <a (click)="Delete(region.Id)" class="btn btn-danger">Delete</a>
   </div>
 </div>
+
+<router-outlet></router-outlet>

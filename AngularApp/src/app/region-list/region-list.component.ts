@@ -20,7 +20,8 @@ export class RegionListComponent implements OnInit {
   Country: Country;
 
   constructor(private regionService : RegionListService, private countryService : CountryListService) { 
-  }
+    this.Country = {} as Country;
+ }
 
   ngOnInit() {
     this.regionService.getAll().subscribe(data => this.regions = data.json());
@@ -29,7 +30,7 @@ export class RegionListComponent implements OnInit {
 
   OnSubmit()
   {
-    this.regionService.create(new Region(this.Name,this.Country)).subscribe();
+    this.regionService.create(new Region(this.Name,this.Country.Id)).subscribe(res => this.regions.push(res.json()));
   }
 
 }

@@ -1,9 +1,11 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">{{accommodation-type.Name}}</h3>
+    <h3 class="panel-title">{{accType.Name}}</h3>
   </div>
   <div class="panel-body">
-    <a href="#" class="btn btn-info">Edit</a>
-    <a href="#" class="btn btn-danger">Delete</a>
+    <a (click)="Update(accType)" class="btn btn-info">Edit</a>
+    <a (click)="Delete(accType.Id)" class="btn btn-danger">Delete</a>
   </div>
 </div>
+
+<router-outlet></router-outlet>

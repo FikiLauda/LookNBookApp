@@ -18,7 +18,7 @@ export class AccommodationComponent implements OnInit {
   constructor() {
     this.mapInfo = new MapInfo(this.accomm.Latitude, this.accomm.Longitude, 
     "assets/LookNBook.png",
-    this.accomm.Name , this.accomm.AccType.Name , "");
+    this.accomm.Name , "", "");
    }
 
   ngOnInit() {

@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
+import {RegionListService} from '../region-list/region-list.service'
+import {RegionListComponent} from '../region-list/region-list.component'
 import {Region} from './region.model';
 
 @Component({
@@ -11,9 +14,19 @@ export class RegionComponent implements OnInit {
 
   @Input() region: Region
 
-  constructor() { }
+  constructor(private regionService : RegionListService, private listComponent : RegionListComponent, private router: Router)  { }
 
   ngOnInit() {
+  }
+
+  Update(region: Region)
+  {
+    //this.router.navigate(['/adminPanel/countries/update',country.Id, country.Name, country.Code]);
+  }
+
+  Delete(id: number)
+  {
+    this.regionService.delete(id).subscribe(x => {res => this.listComponent.regions.splice(res.json()); this.router.navigate(['/adminPanel/regions'])});
   }
 
 }

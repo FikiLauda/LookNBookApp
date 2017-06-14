@@ -47,25 +47,25 @@
   <div class="form-group">
     <label class="control-label col-sm-2" for="Place">Place:</label>
     <div class="col-sm-10">
-      <input class="form-control" list="Places" id="Place" name = "Place" [(ngModel)]="Place"/>
-      <datalist id="Places">
-        <option *ngFor="let p of places"> <place [place] = "p"></place></option>
-      </datalist>
+      <select class="form-control" id="Place" name = "Place" [(ngModel)]="Place.Id">
+        <option *ngFor="let p of places" [value]="p.Id">{{p.Name}}</option>
+      </select>
     </div>
   </div>
 
     <div class="form-group">
     <label class="control-label col-sm-2" for="AccType">Accommodation type:</label>
     <div class="col-sm-10">
-      <input class="form-control" list="AccTypes" id="AccType" name = "AccType" [(ngModel)]="AccType"/>
-      <datalist id="AccTypes">
-        <option *ngFor="let at of accTypes"> <accommodation-type [accType] = "at"></accommodation-type></option>
-      </datalist>
+      <select class="form-control" id="AccType" name = "AccType" [(ngModel)]="AccType.Id">
+        <option *ngFor="let at of accTypes" [value]="at.Id">{{at.Name}}</option>
+      </select>
     </div>
   </div> 
 
   <div class="form-group">
+    <div class="col-sm-2 col-lg-offset-2">
     <input class="btn btn-primary" type="submit" Value = "Add Accommodation"/>
+    </div>
   </div>
 </fieldset>
 </form>
