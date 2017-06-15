@@ -4,11 +4,11 @@ export class Region
 {
     Id: number;
     Name: string;
-    CtryId: number;
+    CountryId: number;
 
-    constructor(name: string, ctryId: number)
+    constructor(name: string, countryId: number)
     {
         this.Name = name;
-        this.CtryId = ctryId;
+        this.CountryId = countryId;
     }
 }

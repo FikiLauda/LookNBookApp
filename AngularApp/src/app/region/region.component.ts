@@ -21,7 +21,7 @@ export class RegionComponent implements OnInit {
 
   Update(region: Region)
   {
-    //this.router.navigate(['/adminPanel/countries/update',country.Id, country.Name, country.Code]);
+    this.router.navigate(['/adminPanel/regions/update', region.Id, region.Name, region.CountryId]);
   }
 
   Delete(id: number)

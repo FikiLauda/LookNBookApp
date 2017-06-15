@@ -9,7 +9,8 @@ import {PlaceListService} from '../place-list/place-list.service'
 @Component({
   selector: 'app-accommodation-list',
   templateUrl: './accommodation-list.component.html',
-  styleUrls: ['./accommodation-list.component.css']
+  styleUrls: ['./accommodation-list.component.css'],
+  providers: [PlaceListService,AccommodationTypeListService,AccommodationListService]
 })
 export class AccommodationListComponent implements OnInit {
 
@@ -23,7 +24,10 @@ export class AccommodationListComponent implements OnInit {
   Latitude: number;
   Longitude: number;
   Place: Place;
-  AccType: AccommodationType
+  AccType: AccommodationType;
+  userId: number;
+  
+  accommodations: Accommodation[]
 
   ImgUrl: string;
 
@@ -35,11 +39,13 @@ export class AccommodationListComponent implements OnInit {
   ngOnInit() {
     this.accTypeService.getAll().subscribe(data => this.accTypes = data.json());
     this.placeService.getAll().subscribe(data => this.places = data.json());
+	  this.accommodationService.getAll().subscribe(data => this.accommodations = data.json());
   }
 
   OnSubmit()
   {
-    this.accommodationService.create(new Accommodation(this.Name,this.Description,this.Address,0,this.Latitude,this.Longitude,this.ImgUrl,false,this.AccType.Id,this.Place.Id)).subscribe();
+    this.userId = +localStorage.getItem("User Id");
+    this.accommodationService.create(new Accommodation(this.Name,this.Description,this.Address,0,this.Latitude,this.Longitude,this.ImgUrl,false,this.AccType.Id,this.Place.Id, this.userId)).subscribe(res => this.accommodations.push(res.json()));
   }
 
   readURL(input) {

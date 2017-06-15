@@ -27,10 +27,31 @@ import { AgmCoreModule } from '@agm/core';
 import { StartScreenComponent } from './start-screen/start-screen.component';
 import { ManagerPanelComponent } from './manager-panel/manager-panel.component';
 import { EditCountryComponent } from './edit-country/edit-country.component';
+import { UpdateRegionComponent } from './update-region/update-region.component';
+import { UpdatePlaceComponent } from './update-place/update-place.component';
+import { UpdateAccTypeComponent } from './update-acc-type/update-acc-type.component';
+import { RoomReservationComponent } from './room-reservation/room-reservation.component';
+import { RoomReservationListComponent } from './room-reservation-list/room-reservation-list.component';
 
 const CountryChildRoutes = [
    {path: "update/:Id/:Name/:Code", component: EditCountryComponent}
   ]
+
+const RegionChildRoutes = [
+   {path: "update/:Id/:Name/:CId", component: UpdateRegionComponent}
+  ]
+
+const PlaceChildRoutes = [
+   {path: "update/:Id/:Name/:RId", component: UpdatePlaceComponent}
+  ]
+
+  const AccTypesChildRoutes = [
+   {path: "update/:Id/:Name", component: UpdateAccTypeComponent}
+  ]
+
+const AccommChildRoutes = [
+  {path: "rooms/:Id", component: RoomListComponent}
+]
 
 const StartChildRoutes = [
    {path: "login", component: LoginComponent},
@@ -39,14 +60,13 @@ const StartChildRoutes = [
 
 const AdminPanelChildRoutes = [
     {path: "countries", component: CountryListComponent, children: CountryChildRoutes},
-    {path: "regions", component: RegionListComponent},
-    {path: "places", component: PlaceListComponent},
-    {path: "accTypes", component: AccommodationTypeListComponent}
+    {path: "regions", component: RegionListComponent, children: RegionChildRoutes},
+    {path: "places", component: PlaceListComponent, children: PlaceChildRoutes},
+    {path: "accTypes", component: AccommodationTypeListComponent, children: AccTypesChildRoutes}
   ]
 
 const ManagerPanelChildRoutes = [
-    {path: "accommodations", component: AccommodationListComponent},
-    {path: "rooms", component: RoomListComponent}
+    {path: "accommodations", component: AccommodationListComponent, children: AccommChildRoutes},
   ]
 
 const Routes = [
@@ -80,7 +100,12 @@ const Routes = [
     MapComponent,
     StartScreenComponent,
     ManagerPanelComponent,
-    EditCountryComponent 
+    EditCountryComponent,
+    UpdateRegionComponent,
+    UpdatePlaceComponent,
+    UpdateAccTypeComponent,
+    RoomReservationComponent,
+    RoomReservationListComponent 
   ],
   imports: [
     BrowserModule,

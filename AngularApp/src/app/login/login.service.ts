@@ -26,6 +26,7 @@ export class LoginService
     logOut(): void{
         localStorage.removeItem("token");
         localStorage.removeItem("role");
+        localStorage.removeItem("userId");
     }
 
     isLoggedIn(): boolean{

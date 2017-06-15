@@ -19,7 +19,7 @@ export class AccommodationTypeComponent implements OnInit {
 
   Update(accType: AccommodationType)
   {
-    //this.router.navigate(['/adminPanel/countries/update',accType.Id, accType.Name]);
+    this.router.navigate(['/adminPanel/accTypes/update',accType.Id, accType.Name]);
   }
 
   Delete(id: number)

@@ -2,11 +2,10 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <img width="75" src="../assets/LookNBook.png" float="left"/>
-      <a class="navbar-brand" [routerLink]="['/managerPanel']">Admin Panel</a>
+      <a class="navbar-brand" [routerLink]="['/managerPanel']">Manager Panel</a>
     </div>
     <ul class="nav navbar-nav">
       <li><a [routerLink]="['/managerPanel/accommodations']">Accommodations</a></li>
-      <li><a [routerLink]="['/managerPanel/rooms']">Rooms</a></li>
     </ul>
   <ul class="nav navbar-nav navbar-right">
    <li><a (click)="SignOut()" class="btn btn-primary">Sign Out</a></li>

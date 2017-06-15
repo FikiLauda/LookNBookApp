@@ -22,7 +22,7 @@ namespace BookingApp.Models
         [Required]
         public string Address { get; set; }
 
-        [Range(1,5)]
+        [Range(0,5)]
         [Required]
         public decimal AverageGrade { get; set; }
 

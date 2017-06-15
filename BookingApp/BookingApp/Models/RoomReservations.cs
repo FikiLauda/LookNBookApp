@@ -16,8 +16,10 @@ namespace BookingApp.Models
         public DateTime EndDate { get; set; }
 
         [Timestamp]
-        [Required]
         public byte[] Timestamp { get; set; }
+
+        [Required]
+        public bool Canceled { get; set; }
 
         [Key]
         [Column(Order = 1)]

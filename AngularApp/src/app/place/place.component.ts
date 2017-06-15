@@ -21,7 +21,7 @@ export class PlaceComponent implements OnInit {
 
   Update(place: Place)
   {
-    //this.router.navigate(['/adminPanel/countries/update',country.Id, country.Name, country.Code]);
+    this.router.navigate(['/adminPanel/countries/update',place.Id, place.Name, place.RegionId]);
   }
 
   Delete(id: number)

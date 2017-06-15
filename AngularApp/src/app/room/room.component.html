@@ -3,5 +3,11 @@
   <div class="panel-body">
     <p>{{room.Description}}</p><br>
     <p>{{room.PricePerNight}}</p>
+	<div>
+		<a (click)="Update(room)" class="btn btn-info">Edit</a>
+		<a (click)="Delete(room.Id)" class="btn btn-danger">Delete</a>
+	</div>
   </div>
 </div>
+
+<router-outlet></router-outlet>

@@ -5,7 +5,7 @@ export class Room
     BedCount: number;
     Description: string;
     PricePerNight: number;
-    AccommId: number; 
+    AccId: number; 
 
     constructor(roomNumber: number, bedCount: number, description: string, pricePerNight: number, accommId: number)
     {
@@ -13,6 +13,6 @@ export class Room
         this.BedCount = bedCount;
         this.Description = description;
         this.PricePerNight = pricePerNight;
-    	this.AccommId = accommId; 
+    	this.AccId = accommId; 
     }
 }

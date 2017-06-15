@@ -284,6 +284,14 @@
     <Compile Include="Migrations\201706090756505_UserRegUpdate.Designer.cs">
       <DependentUpon>201706090756505_UserRegUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706150958304_AverageGradeMinEdit.cs" />
+    <Compile Include="Migrations\201706150958304_AverageGradeMinEdit.Designer.cs">
+      <DependentUpon>201706150958304_AverageGradeMinEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706151109263_RoomReservationUpdated.cs" />
+    <Compile Include="Migrations\201706151109263_RoomReservationUpdated.Designer.cs">
+      <DependentUpon>201706151109263_RoomReservationUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accommodation.cs" />
     <Compile Include="Models\AccommodationType.cs" />
@@ -388,6 +396,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706090756505_UserRegUpdate.resx">
       <DependentUpon>201706090756505_UserRegUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706150958304_AverageGradeMinEdit.resx">
+      <DependentUpon>201706150958304_AverageGradeMinEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706151109263_RoomReservationUpdated.resx">
+      <DependentUpon>201706151109263_RoomReservationUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
