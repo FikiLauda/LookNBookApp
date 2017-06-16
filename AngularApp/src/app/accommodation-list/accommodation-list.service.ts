@@ -20,16 +20,21 @@ export class AccommodationListService
         return this.http.get(`http://localhost:54042/api/Accommodations/${id}`);
     }
 
-    create(accomm: Accommodation) : Observable<any>
+    create(accomm: Accommodation, file: File) : Observable<any>
     {
-        let header = new Headers()
-        header.append('Content-type','application/json');
-        header.append('Authorization','Bearer ' + localStorage.getItem("token"));
+        let formData:FormData = new FormData();
+        formData.append('accommodation', JSON.stringify(accomm));
+        formData.append('uploadFile', file, file.name);
+        console.log(formData);
+        let headers = new Headers();
+        headers.append('enctype', 'multipart/form-data');
+        headers.append('Authorization','Bearer ' + localStorage.getItem("token"));
+        headers.append('Accept', 'application/json');
 
         let opts = new RequestOptions();
-        opts.headers = header;
+        opts.headers = headers;
 
-        return this.http.post(`http://localhost:54042/api/Accommodations/`, JSON.stringify(accomm), opts);
+        return this.http.post(`http://localhost:54042/api/Accommodations/`, formData, opts);
     }
 	
 	update(accomm: Accommodation, id: number)

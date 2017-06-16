@@ -1,3 +1,22 @@
-<p>
-  room-reservation-list works!
-</p>
+<form #F="ngForm" (ngSubmit)="OnSubmit()" class="form-horizontal">
+<fieldset>
+<legend>Book room</legend>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="SDate">Check In Date:</label>
+	<div class="col-sm-10">
+    <input class="form-control" type="date" id="SDate" name = "SDate" [(ngModel)]="StartDate"/>
+	</div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="EDate">Check Out Date:</label>
+	<div class="col-sm-10">
+    <input class="form-control" type="date" id="EDate" name = "EDate" [(ngModel)]="EndDate"/>
+	</div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-2 col-lg-offset-2">
+    <input class="btn btn-primary" type="submit" Value = "BOOK"/>
+    </div>
+  </div>
+</fieldset>
+</form>

@@ -8,7 +8,11 @@
       <map [mapInfo]="mapInfo"></map>
     </div>
 	<div>
-    <a (click)="Details()" class="btn btn-info">Details</a>
+    <a (click)="AddRoom(accomm.Id)" class="btn btn-info">Add Room</a>
+		<a (click)="Update(accomm)" class="btn btn-info">Edit</a>
+		<a (click)="Delete(accomm.Id)" class="btn btn-danger">Delete</a>
 	</div>
   </div>
 </div>
+
+<router-outlet></router-outlet>

@@ -16,6 +16,8 @@ export class RoomReservationListComponent implements OnInit {
   rooms: Room[]
   
   reserv: RoomReservation[]
+  
+  roomReserv: RoomReservation[]
 
   StartDate: Date;
   EndDate: Date;
@@ -32,7 +34,7 @@ export class RoomReservationListComponent implements OnInit {
 
   OnSubmit()
   {
-    this.reservationService.create(new RoomReservation(this.StartDate,this.EndDate, false, this.RoomId, this.UserId)).subscribe(res => this.reserv.push(res.json()));
+    //this.reservationService.create(new RoomReservation(this.StartDate,this.EndDate, false, this.RoomId, this.UserId)).subscribe(res => this.reserv.push(res.json()));
   }
 
 }

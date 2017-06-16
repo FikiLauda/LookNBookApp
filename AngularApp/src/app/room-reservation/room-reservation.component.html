@@ -1,3 +1,8 @@
-<p>
-  room-reservation works!
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">RESERVATION</div>
+  <div class="panel-body">
+    <p>Check In Date: {{roomReservation.StartDate}}</p><br>
+    <p>Check Out Date: {{roomReservation.EndDate}}</p>
+  </div>
+	<a (click)="CancelReserve(roomReservation)" class="btn btn-danger">Cancel Reservation</a>
+</div>

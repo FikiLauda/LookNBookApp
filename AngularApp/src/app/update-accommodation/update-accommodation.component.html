@@ -1,0 +1,56 @@
+<form #F="ngForm" (ngSubmit)="OnSubmit()" class="form-horizontal">
+<fieldset>
+<legend>Update Accommodation Data</legend>
+
+    <div class="form-group">
+      <label for="accName" class="col-sm-2 control-label">Accommodation name:</label>
+      <div class="col-lg-10">
+        <input class="form-control" type="text" id="accName" name="accName" [(ngModel)]="Name"/>
+      </div>
+    </div>   
+
+    <div class="form-group">
+      <label for="address" class="col-sm-2 control-label">Address:</label>
+      <div class="col-lg-10">
+        <input class="form-control" type="text" id="address" name="address" [(ngModel)]="Address"/>
+      </div>
+    </div>   
+
+    <div class="form-group">
+      <label for="textArea" class="col-sm-2 control-label">Description:</label>
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="3" id="textArea" name = "textArea" [(ngModel)]="Description"></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="latitude" class="col-sm-2 control-label">Latitude:</label>
+      <div class="col-lg-10">
+        <input class="form-control" type="number" id="latitude" name="latitude" [(ngModel)]="Latitude"/>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="longitude" class="col-sm-2 control-label">Longitude:</label>
+      <div class="col-lg-10">
+        <input class="form-control" type="number" id="longitude" name="longitude" [(ngModel)]="Longitude"/>
+      </div>
+    </div> 
+
+    <div class="form-group">
+    <label class="control-label col-sm-2" for="AccType">Accommodation type:</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="AccType" name = "AccType" [(ngModel)]="AccType.Id">
+        <option *ngFor="let at of accTypes" [value]="at.Id">{{at.Name}}</option>
+      </select>
+    </div>
+  </div> 
+
+  <div class="form-group">
+    <div class="col-sm-2 col-lg-offset-2">
+	    <button (click)="Cancel()" class="btn btn-default">Cancel</button>
+      <input class="btn btn-primary" type="submit" Value = "Update Accommodation"/>
+    </div>
+  </div>
+</fieldset>
+</form>

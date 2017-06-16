@@ -18,23 +18,13 @@ export class AccommodationListComponent implements OnInit {
 
   accTypes: AccommodationType[]
 
-  Name: string;
-  Description: string;
-  Address: string;
-  Latitude: number;
-  Longitude: number;
-  Place: Place;
-  AccType: AccommodationType;
-  userId: number;
-  
   accommodations: Accommodation[]
 
-  ImgUrl: string;
+  userId: number;
 
-  constructor(private placeService : PlaceListService, private accTypeService : AccommodationTypeListService, private accommodationService: AccommodationListService) { 
-    this.AccType = {} as AccommodationType;
-    this.Place = {} as Place;
-}
+  file: File;
+
+  constructor(private placeService : PlaceListService, private accTypeService : AccommodationTypeListService, private accommodationService: AccommodationListService) { }
 
   ngOnInit() {
     this.accTypeService.getAll().subscribe(data => this.accTypes = data.json());
@@ -42,23 +32,18 @@ export class AccommodationListComponent implements OnInit {
 	  this.accommodationService.getAll().subscribe(data => this.accommodations = data.json());
   }
 
-  OnSubmit()
+  OnSubmit(acc: Accommodation, form: any )
   {
-    this.userId = +localStorage.getItem("User Id");
-    this.accommodationService.create(new Accommodation(this.Name,this.Description,this.Address,0,this.Latitude,this.Longitude,this.ImgUrl,false,this.AccType.Id,this.Place.Id, this.userId)).subscribe(res => this.accommodations.push(res.json()));
+    this.userId = +localStorage.getItem("userId");
+    acc.OwnerId = this.userId;
+    this.accommodationService.create(acc, this.file).subscribe(res => this.accommodations.push(res.json()));
   }
 
-  readURL(input) {
-
-    let self = this;
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                  self.ImgUrl = reader.result;
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
+  onChange(event: EventTarget) {
+        let eventObj: MSInputMethodContext = <MSInputMethodContext> event;
+        let target: HTMLInputElement = <HTMLInputElement> eventObj.target;
+        let files: FileList = target.files;
+        this.file = files[0];
+        console.log(this.file);
     }
 }

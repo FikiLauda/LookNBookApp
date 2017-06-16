@@ -12,12 +12,12 @@ export class CommentListService
 
     getAll() : Observable<any>
     {
-        return this.http.get("http://localhost:54042/api/Comments") ////change!!!!!
+        return this.http.get("http://localhost:54042/api/Comments")
     }
 
     getById(id: number) : Observable<any>
     {
-        return this.http.get(`http://localhost:54042/api/Comments/${id}`); /////change!!!!!
+        return this.http.get(`http://localhost:54042/api/Comments/${id}`);
     }
 
     create(comment: Comment) : Observable<any>
@@ -29,6 +29,18 @@ export class CommentListService
         let opts = new RequestOptions();
         opts.headers = header;
 
-        return this.http.post(`http://localhost:54042/api/Comments/`, JSON.stringify(comment)); /////change!!!!!
+        return this.http.post(`http://localhost:54042/api/Comments/`, JSON.stringify(comment));
+    }
+	
+	delete(commentId: number) : Observable<any>
+    {
+        let header = new Headers()
+        header.append('Content-type','application/json');
+        header.append('Authorization','Bearer ' + localStorage.getItem("token"));
+
+        let opts = new RequestOptions();
+        opts.headers = header;
+
+        return this.http.delete(`http://localhost:54042/api/Comments/${commentId}`);
     }
 }

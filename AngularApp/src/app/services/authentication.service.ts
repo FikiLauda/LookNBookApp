@@ -7,7 +7,7 @@ export class AuthenticationService {
         let response_json = response.json();
         let token = response_json["access_token"];
         let role = response.headers.get("Role");
-        let userId = response.headers.get("");
+        let userId = response.headers.get("UserId");
 
         localStorage.setItem("token", token);
         localStorage.setItem("role", role);

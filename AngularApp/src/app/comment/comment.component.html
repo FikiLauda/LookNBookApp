@@ -4,4 +4,7 @@
     <p>{{comment.Text}}</p><br>
     <p>grade:</p><h2>{{comment.Grade}}</h2>
   </div>
+  <div ng-if="comment.UserId">
+	<a (click)="Delete(comment)" class="btn btn-danger">Delete</a>
+  </div>
 </div>

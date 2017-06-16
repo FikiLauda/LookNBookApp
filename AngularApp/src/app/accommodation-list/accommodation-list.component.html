@@ -1,53 +1,53 @@
-<form #F="ngForm" (ngSubmit)="OnSubmit()" class="form-horizontal">
+<form #F="ngForm" (ngSubmit)="OnSubmit(F.value, F)" class="form-horizontal">
 <fieldset>
 <legend>Add accommodation</legend>
 
     <div class="form-group">
       <label for="accName" class="col-sm-2 control-label">Accommodation name:</label>
       <div class="col-lg-10">
-        <input class="form-control" type="text" id="accName" name="accName" [(ngModel)]="Name"/>
+        <input class="form-control" type="text" id="accName" name="Name" ngModel/>
       </div>
     </div>   
 
     <div class="form-group">
       <label for="address" class="col-sm-2 control-label">Address:</label>
       <div class="col-lg-10">
-        <input class="form-control" type="text" id="address" name="address" [(ngModel)]="Address"/>
+        <input class="form-control" type="text" id="address" name="Address" ngModel/>
       </div>
     </div>   
 
     <div class="form-group">
       <label for="textArea" class="col-sm-2 control-label">Description:</label>
       <div class="col-lg-10">
-        <textarea class="form-control" rows="3" id="textArea" name = "textArea" [(ngModel)]="Description"></textarea>
+        <textarea class="form-control" rows="3" id="textArea" name = "Decription" ngModel></textarea>
       </div>
     </div>
 
     <div class="form-group">
       <label for="latitude" class="col-sm-2 control-label">Latitude:</label>
       <div class="col-lg-10">
-        <input class="form-control" type="number" id="latitude" name="latitude" [(ngModel)]="Latitude"/>
+        <input class="form-control" type="number" id="latitude" name="Latitude" ngModel/>
       </div>
     </div>
 
     <div class="form-group">
       <label for="longitude" class="col-sm-2 control-label">Longitude:</label>
       <div class="col-lg-10">
-        <input class="form-control" type="number" id="longitude" name="longitude" [(ngModel)]="Longitude"/>
+        <input class="form-control" type="number" id="longitude" name="Longitude" ngModel/>
       </div>
     </div> 
 
     <div class="form-group">
       <label for="longitude" class="col-sm-2 control-label">Image:</label>
       <div class="col-lg-10">
-        <input class="form-control" type='file' onchange="readURL(this);" />
+        <input class="form-control" type='file' name="file" (change)="onChange($event)" />
      </div>
     </div> 
 
   <div class="form-group">
     <label class="control-label col-sm-2" for="Place">Place:</label>
     <div class="col-sm-10">
-      <select class="form-control" id="Place" name = "Place" [(ngModel)]="Place.Id">
+      <select class="form-control" id="Place" name = "PlaceId" ngModel>
         <option *ngFor="let p of places" [value]="p.Id">{{p.Name}}</option>
       </select>
     </div>
@@ -56,7 +56,7 @@
     <div class="form-group">
     <label class="control-label col-sm-2" for="AccType">Accommodation type:</label>
     <div class="col-sm-10">
-      <select class="form-control" id="AccType" name = "AccType" [(ngModel)]="AccType.Id">
+      <select class="form-control" id="AccType" name = "AccTypeId" ngModel>
         <option *ngFor="let at of accTypes" [value]="at.Id">{{at.Name}}</option>
       </select>
     </div>
