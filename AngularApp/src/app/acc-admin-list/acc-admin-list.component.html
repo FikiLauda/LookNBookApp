@@ -1,0 +1,5 @@
+<div class="list-group">
+  <div class="list-group-item" *ngFor="let a of accommodations"> 
+	<acc-admin-view *ngIf="!a.Approved" [accomm] = "a"></acc-admin-view>
+  </div>
+</div>

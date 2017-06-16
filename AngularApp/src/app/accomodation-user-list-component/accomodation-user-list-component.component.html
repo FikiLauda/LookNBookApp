@@ -1,3 +1,9 @@
-<p>
-  accomodation-user-list-component works!
-</p>
+<h2>
+  Accommodations
+</h2>
+
+<div class="list-group">
+  <div class="list-group-item" *ngFor="let a of accommodations"> 
+	<accomodation-user-view ng-if="accomm.Approved" [accomm] = "a"></accomodation-user-view>
+  </div>
+</div>

@@ -22,6 +22,6 @@ export class RoomReservationComponent implements OnInit {
   CancelReserve(roomReservation: RoomReservation)
   {
 	  roomReservation.Canceled = true;
-    //this.listService.update(roomReservation, roomReservation.id).subscribe(x => {res => this.listComponent.reserves.splice(res.json()); this.router.navigate(['/userPanel/countries'])});
+    //this.listService.update(roomReservation, roomReservation.Id).subscribe(x => { this.router.navigate(['/userPanel/accommodations'])});
   }
 }

@@ -35,10 +35,12 @@ import { RoomReservationListComponent } from './room-reservation-list/room-reser
 import { UpdateAccommodationComponent } from './update-accommodation/update-accommodation.component';
 import { UpdateRoomComponent } from './update-room/update-room.component';
 import { AccomodationManagerViewComponent } from './accomodation-manager-view/accomodation-manager-view.component';
-import { PlaceListService } from "./place-list/place-list.service";
 import { AccomodationUserViewComponent } from './accomodation-user-view/accomodation-user-view.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import { AccomodationUserListComponentComponent } from './accomodation-user-list-component/accomodation-user-list-component.component';
+import { RoomUserViewComponent } from './room-user-view/room-user-view.component';
+import { AccAdminListComponent } from './acc-admin-list/acc-admin-list.component';
+import { AccAdminViewComponent } from './acc-admin-view/acc-admin-view.component';
 
 const CountryChildRoutes = [
    {path: "update/:Id/:Name/:Code", component: EditCountryComponent}
@@ -70,7 +72,8 @@ const AdminPanelChildRoutes = [
     {path: "countries", component: CountryListComponent, children: CountryChildRoutes},
     {path: "regions", component: RegionListComponent, children: RegionChildRoutes},
     {path: "places", component: PlaceListComponent, children: PlaceChildRoutes},
-    {path: "accTypes", component: AccommodationTypeListComponent, children: AccTypesChildRoutes}
+    {path: "accTypes", component: AccommodationTypeListComponent, children: AccTypesChildRoutes},
+    {path: "accommodations", component: AccAdminListComponent}
   ]
 
 const ManagerPanelChildRoutes = [
@@ -78,8 +81,11 @@ const ManagerPanelChildRoutes = [
     {path: "accommodations", component: AccommodationListComponent}
   ]
 
+  const UserPanelAccChildRoutes = [
+    {path: "comments/:Id", component: CommentListComponent}
+  ]
+
   const UserPanelChildRoutes = [
-    {path: "accommodations/:Id", component: AccomodationManagerViewComponent, children: AccommChildRoutes},
     {path: "accommodations", component: AccomodationUserListComponentComponent}
   ]
 
@@ -126,7 +132,10 @@ const Routes = [
     AccomodationManagerViewComponent,
     AccomodationUserViewComponent,
     UserPanelComponent,
-    AccomodationUserListComponentComponent 
+    AccomodationUserListComponentComponent,
+    RoomUserViewComponent,
+    AccAdminListComponent,
+    AccAdminViewComponent 
   ],
   imports: [
     BrowserModule,
@@ -135,7 +144,7 @@ const Routes = [
     AgmCoreModule.forRoot({apiKey: 'AIzaSyCuClu0_n67jJhhQViC3RhgLzm6EZrKeIE'}),
     RouterModule.forRoot(Routes)
   ],
-  providers: [PlaceListService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

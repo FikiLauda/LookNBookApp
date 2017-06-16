@@ -18,10 +18,5 @@ export class CommentComponent implements OnInit {
 
   ngOnInit() {
   }
-  
-  Delete(comment: Comment)
-  {
-    //this.commentService.delete(id).subscribe(x => {res => this.listComponent.comments.splice(res.json()); this.router.navigate(['/userPanel/countries'])});
-  }
 
 }

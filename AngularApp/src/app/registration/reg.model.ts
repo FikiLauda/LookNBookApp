@@ -1,5 +1,6 @@
 export class NewUser
 {
+    UserId: number;
     Name: string;
     Surname: string;
     Email: string;

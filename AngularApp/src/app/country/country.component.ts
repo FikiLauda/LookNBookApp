@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import {Country} from './country.model';
 import {CountryListService} from '../country-list/country-list.service'
@@ -14,8 +14,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class CountryComponent implements OnInit {
 
   @Input() country: Country
+  @Output() onRemovedCountry: EventEmitter<Country>;
 
-  constructor(private countryService : CountryListService, private listComponent : CountryListComponent, private router: Router)  { }
+  constructor(private countryService : CountryListService, private listComponent : CountryListComponent, private router: Router)  {
+    this.onRemovedCountry = new EventEmitter();
+   }
 
   ngOnInit() {
   }
@@ -27,7 +30,7 @@ export class CountryComponent implements OnInit {
 
   Delete(id: number)
   {
-    this.countryService.delete(id).subscribe(x => {res => this.listComponent.countries.splice(res.json()); this.router.navigate(['/adminPanel/countries'])});
+    this.countryService.delete(id).subscribe(x => this.onRemovedCountry.emit(this.country));
   }
 
 }

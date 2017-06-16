@@ -1,12 +1,9 @@
 <div class="panel panel-default">
   <div class="panel-heading">{{accomm.Name}}</div>
   <div class="panel-body">
-    <img src="{{accomm.ImgUrl}}" float="left" class="img-responsive" alt="Accommodation Image" width="300">
+    <!--img src="accomm.ImgUrl.getPath()" float="left" class="img-responsive" alt="Accommodation Image" width="300"-->
     <p>{{accomm.Address}}</p><br>
     <p>{{accomm.Description}}</p><br>
-    <div style="width:50%; margin: 0 auto">
-      <map [mapInfo]="mapInfo"></map>
-    </div>
 	<div>
     <a (click)="AddRoom(accomm.Id)" class="btn btn-info">Add Room</a>
 		<a (click)="Update(accomm)" class="btn btn-info">Edit</a>

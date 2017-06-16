@@ -23,7 +23,7 @@ export class CommentListComponent implements OnInit {
 
   constructor(private commentService : CommentListService, private activeRoute: ActivatedRoute, private router: Router) { 
 	this.accommodation = {} as Accommodation; 
-	this.comments = []; //dodaj u roomList
+	this.comments = []; 
     activeRoute.params.subscribe(params => {this.accommodation.Id = params["Id"]});
   }
 

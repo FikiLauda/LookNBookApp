@@ -29,4 +29,8 @@ export class CountryListComponent implements OnInit {
     this.Code="";
   }
 
+  removeCountry(c: Country){
+    this.countries.splice(this.countries.indexOf(c), 1);
+  }
+
 }

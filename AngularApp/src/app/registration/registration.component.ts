@@ -30,7 +30,6 @@ export class RegistrationComponent implements OnInit {
 
   OnSubmit()
   {
-    console.log(this.role);
     this.regService.Register(new NewUser(this.name,this.surname,this.mail,this.pass,this.confPass,this.role)).subscribe(x => {this.router.navigate(['/start/login'])});
   }
 

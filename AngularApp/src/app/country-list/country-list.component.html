@@ -27,6 +27,6 @@
 
 <div class="list-group">
   <div class="list-group-item" *ngFor="let c of countries">
-	<country [country] = "c"></country>
+	<country [country] = "c" (onRemovedCountry)="removeCountry($event)"></country>
   </div>
 </div>

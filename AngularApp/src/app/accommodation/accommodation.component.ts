@@ -26,12 +26,12 @@ export class AccommodationComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.mapInfo = new MapInfo(this.accomm.Latitude, this.accomm.Longitude, "assets/LookNBook.png",this.accomm.Name , "", "");
+    this.mapInfo = new MapInfo(this.accomm.Latitude, this.accomm.Longitude, "assets/LookNBook.png",this.accomm.Name , this.accomm.Address, this.accomm.Decription);
   }
 
-  Details()
+  Details(Id: number)
   {
-    this.router.navigate(['/managerPanel/accommodations', this.accomm.Id]);
+    this.router.navigate(['/managerPanel/accommodations', Id]);
   }
 
 }
