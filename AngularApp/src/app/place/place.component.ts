@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import {PlaceListService} from '../place-list/place-list.service'
@@ -13,8 +13,12 @@ import {Place} from './place.model';
 export class PlaceComponent implements OnInit {
 
   @Input() place: Place
+  @Output() onRemovedPlace: EventEmitter<Place>;
 
-  constructor(private placeService : PlaceListService, private listComponent : PlaceListComponent, private router: Router) { }
+  constructor(private placeService : PlaceListService, private listComponent : PlaceListComponent, private router: Router) 
+  {
+	this.onRemovedPlace = new EventEmitter();
+  }
 
   ngOnInit() {
   }
@@ -26,7 +30,7 @@ export class PlaceComponent implements OnInit {
 
   Delete(id: number)
   {
-    this.placeService.delete(id).subscribe(x => {res => this.listComponent.places.splice(res.json()); this.router.navigate(['/adminPanel/places'])});
+    this.placeService.delete(id).subscribe(x => this.onRemovedPlace.emit(this.place));
   }
 
 }

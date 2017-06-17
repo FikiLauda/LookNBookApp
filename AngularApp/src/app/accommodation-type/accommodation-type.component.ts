@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {AccommodationType} from './accommodation-type.model';
 import {AccommodationTypeListService} from '../accommodation-type-list/accommodation-type-list.service'
 import {AccommodationTypeListComponent} from '../accommodation-type-list/accommodation-type-list.component'
@@ -12,7 +12,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AccommodationTypeComponent implements OnInit {
 
   @Input() accType: AccommodationType
-  constructor(private accTypeService : AccommodationTypeListService, private listComponent : AccommodationTypeListComponent, private router: Router) { }
+  @Output() onRemovedAccType: EventEmitter<Country>;
+  constructor(private accTypeService : AccommodationTypeListService, private listComponent : AccommodationTypeListComponent, private router: Router) 
+  {
+	this.onRemovedAccType = new EventEmitter();
+  }
 
   ngOnInit() {
   }
@@ -21,10 +25,10 @@ export class AccommodationTypeComponent implements OnInit {
   {
     this.router.navigate(['/adminPanel/accTypes/update',accType.Id, accType.Name]);
   }
-
+  
   Delete(id: number)
   {
-    this.accTypeService.delete(id).subscribe(x => {res => this.listComponent.accTypes.splice(res.json()); this.router.navigate(['/adminPanel/accTypes'])});
+    this.accTypeService.delete(id).subscribe(x => this.onRemovedAccType.emit(this.accType));
   }
 
 }

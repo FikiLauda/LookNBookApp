@@ -32,5 +32,9 @@ export class PlaceListComponent implements OnInit {
   {
     this.placeService.create(new Place(this.Name,this.Region.Id)).subscribe(res => this.places.push(res.json()));
   }
+  
+  removePlace(p: Place){
+    this.places.splice(this.places.indexOf(p), 1);
+  }
 
 }

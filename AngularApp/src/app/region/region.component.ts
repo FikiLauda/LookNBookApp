@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import {RegionListService} from '../region-list/region-list.service'
@@ -13,8 +13,12 @@ import {Region} from './region.model';
 export class RegionComponent implements OnInit {
 
   @Input() region: Region
+  @Output() onRemovedRegion: EventEmitter<Region>;
 
-  constructor(private regionService : RegionListService, private listComponent : RegionListComponent, private router: Router)  { }
+  constructor(private regionService : RegionListService, private listComponent : RegionListComponent, private router: Router)  
+  { 
+	this.onRemovedRegion = new EventEmitter();
+  }
 
   ngOnInit() {
   }
@@ -26,7 +30,7 @@ export class RegionComponent implements OnInit {
 
   Delete(id: number)
   {
-    this.regionService.delete(id).subscribe(x => {res => this.listComponent.regions.splice(res.json()); this.router.navigate(['/adminPanel/regions'])});
+    this.regionService.delete(id).subscribe(x => this.onRemovedRegion.emit(this.region));
   }
 
 }

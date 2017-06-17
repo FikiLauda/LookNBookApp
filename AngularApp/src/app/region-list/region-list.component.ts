@@ -32,5 +32,9 @@ export class RegionListComponent implements OnInit {
   {
     this.regionService.create(new Region(this.Name,this.Country.Id)).subscribe(res => this.regions.push(res.json()));
   }
+  
+  removeRegion(r: Region){
+    this.regions.splice(this.regions.indexOf(r), 1);
+  }
 
 }

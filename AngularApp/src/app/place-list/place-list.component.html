@@ -29,6 +29,6 @@
 
 <div class="list-group">
   <div class="list-group-item" *ngFor="let p of places"> 
-	<place [place] = "p"></place>
+	<place [place] = "p" (onRemovedPlace)="removePlace($event)></place>
   </div>
 </div>

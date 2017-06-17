@@ -29,6 +29,6 @@
 
 <div class="list-group">
   <div class="list-group-item" *ngFor="let r of regions">
-	<region [region] = "r"></region>
+	<region [region] = "r" (onRemovedRegion)="removeRegion($event)"></region>
   </div>
 </div>

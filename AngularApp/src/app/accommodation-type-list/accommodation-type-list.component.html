@@ -21,6 +21,6 @@
 
 <div class="list-group">
   <div class="list-group-item" *ngFor="let at of accTypes"> 
-	<accommodation-type [accType] = "at"></accommodation-type>
+	<accommodation-type [accType] = "at" (onRemovedAccType)="removeAccType($event)></accommodation-type>
   </div>
 </div>

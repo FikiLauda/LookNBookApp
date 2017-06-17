@@ -25,5 +25,9 @@ export class AccommodationTypeListComponent implements OnInit {
   {
     this.accTypeService.create(new AccommodationType(this.Name)).subscribe(res => this.accTypes.push(res.json()));
   }
+  
+  removeCountry(at: AccommodationType){
+    this.accTypes.splice(this.accTypes.indexOf(at), 1);
+  }
 
 }

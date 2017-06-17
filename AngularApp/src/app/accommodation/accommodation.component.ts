@@ -19,13 +19,14 @@ import { AgmCoreModule } from '@agm/core';
 export class AccommodationComponent implements OnInit {
 
   mapInfo: MapInfo
-
+  imageUrl: string = ""
   @Input() accomm: Accommodation
   constructor(private listService : AccommodationListService, private listComponent : AccommodationListComponent, private router: Router) {
     this.mapInfo = {} as MapInfo;
    }
 
   ngOnInit() {
+	this.imageUrl = "http://localhost:54042/" + this.accomm.ImageUrl; 
     this.mapInfo = new MapInfo(this.accomm.Latitude, this.accomm.Longitude, "assets/LookNBook.png",this.accomm.Name , this.accomm.Address, this.accomm.Decription);
   }
 

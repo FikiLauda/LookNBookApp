@@ -18,6 +18,7 @@ import { AgmCoreModule } from '@agm/core';
 export class AccomodationManagerViewComponent implements OnInit {
 
   mapInfo: MapInfo
+  imageUrl: string = ""
 
   @Input() accomm: Accommodation
   constructor(private listService : AccommodationListService, private listComponent : AccommodationListComponent, private router: Router) {
@@ -26,6 +27,7 @@ export class AccomodationManagerViewComponent implements OnInit {
 
   ngOnInit() {
     this.mapInfo = new MapInfo(this.accomm.Latitude, this.accomm.Longitude, "assets/LookNBook.png",this.accomm.Name , "", "");
+	this.imageUrl = "http://localhost:54042/" + this.accomm.ImageUrl; 
   }
 
   AddRoom(accomm: Accommodation)

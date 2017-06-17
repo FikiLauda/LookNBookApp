@@ -11,10 +11,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AccomodationUserViewComponent implements OnInit {
 
+  imageUrl: string = ""
+
   @Input() accomm: Accommodation
   constructor(private accommodationService: AccommodationListService, private router: Router) { }
 
   ngOnInit() {
+	  this.imageUrl = "http://localhost:54042/" + this.accomm.ImageUrl;
   }
 
   Comment(Id: number)

@@ -4,6 +4,6 @@
 
 <div class="list-group">
   <div class="list-group-item" *ngFor="let a of accommodations"> 
-	<accomodation-user-view ng-if="accomm.Approved" [accomm] = "a"></accomodation-user-view>
+	<accomodation-user-view *ngIf="accomm.Approved" [accomm] = "a"></accomodation-user-view>
   </div>
 </div>
